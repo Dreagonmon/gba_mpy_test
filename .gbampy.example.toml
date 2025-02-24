@@ -1,0 +1,25 @@
+[project]
+source_dir = "."
+target_dir = "/"
+ignore-pattern = [
+    "**/__pycache__", # python cache files
+    "**/.*", # hidden files
+    "**/*.gba", # gba files
+    "**/*.sav", # sav files
+    "**/*.sgm", # sgm files
+]
+
+[mpy-cross]
+compile = true
+path = "/path/to/micropython-gba/mpy-cross/build/mpy-cross"
+params = "-O2 -march=armv6m -X emit=bytecode"
+ignore-pattern = [
+    "boot.py",
+    "main.py",
+]
+
+[gba]
+template = "/path/to/micropython-gba/ports/gba/build/micropython.gba"
+output = "./test.gba"
+emulator = "mgba-qt"
+params = "-l 23"

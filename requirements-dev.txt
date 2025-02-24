@@ -1,0 +1,2 @@
+micropython_stm32_stubs>=1.23.0
+gba-mpy-tools>=0.0.1
