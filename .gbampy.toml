@@ -1,0 +1,31 @@
+[project]
+source_dir = "."
+target_dir = "/"
+ignore_pattern = [
+    "**/__pycache__", # python cache files
+    "**/.*", # hidden files
+    "**/*.gba", # gba files
+    "**/*.sav", # sav files
+    "**/*.sgm", # sgm files
+    "**/*.ss?", # ss1, ss2, ss3, ..., ss9 files
+    "**/build_script.py",
+    "**/requirements*.txt",
+    "**/README.md",
+]
+before_build = "build_script:before_build"
+after_build = "build_script:after_build"
+
+[mpy-cross]
+compile = true
+path = "/run/media/dreagonmon/Data/Code/C/micropython-gba/mpy-cross/build/mpy-cross"
+params = "-O2 -march=armv6m -X emit=bytecode"
+ignore_pattern = [
+    "boot.py",
+    "main.py",
+]
+
+[gba]
+template = "/run/media/dreagonmon/Data/Code/C/micropython-gba/ports/gba/build/micropython.gba"
+output = "./test.gba"
+emulator = "mgba-qt"
+params = "-l 23"

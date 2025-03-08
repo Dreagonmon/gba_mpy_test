@@ -2,4 +2,5 @@
 __pycache__
 *.gba
 *.sav
-.gbampy.toml
+*.ss?
+.gbampy.local.toml
